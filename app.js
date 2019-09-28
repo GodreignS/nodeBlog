@@ -36,8 +36,6 @@ require('./Config/passport')(passport);
 const mongoose = require('mongoose');
 const uri = require('./Config/database').mongoURI;
 
-// Database models
-const category = require('./Models/categories');
 
 // ******************************************************************************************
 
