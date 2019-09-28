@@ -1,0 +1,27 @@
+<ul class="list-group list-group-flush list-unstyled">
+    <% if( articles && (articles.length > 0)) {
+        articles.forEach((article, index) => { %>
+                <li class="post-preview row">
+                        <div class="blog__postImg col-3 rounded">
+                            <img src="/uploads/postImage/<%= article.urlImage %>"  title="post image">
+                        </div>
+                        <div class="blog__post col-8 ml-auto lg-auto">
+                            <a href="/post/<%= article._id %>">
+                                <h2 class="post-title">
+                                    <%= article.title %>
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    <%= truncate(article.body, 50) %>
+                                </h3>
+                            </a>
+                            <p class="post-meta">
+                                <%= moment(article.postDate).format('MMMM Do YYYY') %></p>
+                        </div>
+                </li>                                
+        <%  });
+        } else { %>
+        <li>
+            <p class="h4" >No article found</p>
+        </li>     
+    <% } %>
+</ul>

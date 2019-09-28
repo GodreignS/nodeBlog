@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+
+            <p>Name </p>
+            <p><%= moment(post.postDate).format('MMMM Do YYYY') %></p>            
+
+            <div>Category</div>
+            <div class="row justify-content-between">
+                <div class="col-4"></div>
+                <div class="col-4"></div>
+            </div>
+        
+        </div>
+        <div class="col-9">
+            <div>                                                    
+                <h1 class="text-center"><%= post.title %></h1>
+                <img src="/uploads/postImage/<%= post.urlImage %>" title="" style="width: 100%;" class="mb-5">               
+            </div> 
+            <div class="mt-5">
+                <%= post.body %>
+            </div>           
+        </div>        
+    </div>
+    <!-- comment writing section -->
+    <div>
+        <%- include comment.ejs %>
+    </div>
+    <hr>
+    <!-- comment reading section -->
+    <div>
+        <% if( comments ){ 
+                comments.forEach(comment => { %>
+                    <div class="row">
+                        <div class="col-1 mt-4"> <img src="/uploads/userImage/<%= comment.author.urlImage %>" style="width: 100%" class="rounded-circle"> </div>
+                        <div class="col-9">
+                            <p> <span class="font-weight-bold"> <%= comment.author.fullname %> </span><%= moment(comment.commentDate).format('MMMM Do YYYY') %></p>
+                            <p> <%= comment.body %> </p>
+                        </div>
+                    </div>
+                <% })    
+        } %>   
+    </div>
+</div>

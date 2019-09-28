@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 order-lg-2">
+            <ul class="nav nav-tabs" id="blog__tab">
+                <li class="nav-item">
+                    <a href="/myProfile/profile" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/myProfile/postList" class="nav-link">Post</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/myProfile/category" class="nav-link">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/myProfile/editProfile" class="nav-link">Edit</a>
+                </li>
+            </ul>
+            <div class="tab-content py-4">
+                <div class="tab-pane active">
+                    <% switch (tab_pane) {
+                        case 'postList': %>
+                            <%- include('postList')%>            
+                            <% break;
+                        case 'category': %>
+                            <%- include('category')%>        
+                            <% break;
+                        case 'editProfile': %>
+                            <%- include('editProfile') %>        
+                            <% break;                    
+                        default: %>
+                            <%- include('profile')%>            
+                            <% break;
+                    }%>
+                </div>               
+            </div>
+        </div>
+        <div class="col-lg-4 order-lg-1 text-center">
+            <img src="/uploads/userImage/<%= user.urlImage %>" class="mx-auto img-fluid img-rounded d-block" alt="avatar" id="blog__userAvatar">
+            <h6 class="mt-4">Upload a different photo</h6>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        </div>
+    </div>
+</div>

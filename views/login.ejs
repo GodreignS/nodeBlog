@@ -1,0 +1,28 @@
+<div class="container">
+       <div class="Back">
+            <a href="/"><i class="fa fa-arrow-left"></i></a>
+        </div>
+        <p class="mt-5 h2 text-center">Log in</p>
+        <%- messages() %> 
+        <form class="mt-5" action="/users/login" method="post">
+                        
+            <div class="form-group">
+                <label>Email:</label>
+                <input class="form-control" type="email" name="email" placeholder="Enter Your Email"
+                    value="<%= typeof email != 'undefined' ? email : '' %>"
+                />                
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Enter Password"
+                    value="<%= typeof password != 'undefined' ? password : '' %>"
+                />                
+            </div>           
+            <div class="form-group">
+                <input class="btn btn-customised btn-block" type="submit" value="Submit"/>
+            </div>
+            <p class="lead mt-4 text-center ">
+                No Account? <a href="register" class="text-info">Register</a>
+            </p>
+        </form>
+    </div>

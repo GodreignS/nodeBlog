@@ -1,0 +1,5 @@
+# Dependecies directories
+node_modules/
+# Vscode configuration
+.vscode/
+.env

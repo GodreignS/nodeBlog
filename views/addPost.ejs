@@ -1,0 +1,50 @@
+<h1 class="mt-2 mb-4"> Add post </h1>
+<%- messages() %>
+<p class="font-weight-light">Author : <span class="font-italic badge badge-secondary"><%= user.fullname %></span></p> 
+<form method="post" action="/post/add/postImage" enctype="multipart/form-data" >
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" name="postImage" id="postImg" onchange="readURL(this)">
+        <label class="custom-file-label" for="postImg">Choose an post image</label>        
+    </div>
+    <div class="my-2">
+        <img src="/images/imgPlaceholder.png" class="img-fluid" alt="Responsive image" id="postImage">
+    </div>
+
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+    </div>  
+
+    <div class="form-group">
+        <label for="subTitle">Subtitle</label>
+        <input type="text" class="form-control" id="subTitle" name="subTitle" placeholder="Enter subtitle">
+    </div>  
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        
+            <% if(categories.length > 0)
+            { %>
+                <select name="category" class="custom-select" id="postCategory" type="button">
+                    <% categories.forEach( category => { %>
+                        <option value="<%= category.title %>"> <%= category.title %> </option>                
+                    <% }); %>
+                </select> 
+            <%} else 
+            { %>
+                <div class="alert alert-info" role="alert">Please add <a href="/addCategory">category</a> before adding post </div>
+
+            <% } %>
+        
+    </div>  
+    
+    <div class="form-group">
+        <label for="exampleFormControlTextarea1">Message</label>
+        <textarea name="postBody" id="blog__editor"></textarea>
+    </div>
+
+    <div class="form-group">
+        <input class="btn btn-primary" type="submit" value="Save"/>
+    </div>
+
+</form>

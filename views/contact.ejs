@@ -1,0 +1,28 @@
+<div class="col-lg-8 col-md-10 mx-auto">
+    <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>        
+    <%- messages() %>
+    <form  id="contactForm" method="post" action="/contact/send">
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label for="name" >Name</label>
+                <input type="text" class="form-control" placeholder="Name" name="name" id="name" value=" <%= userName %>" >                
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" name="email" id="email" value=" <%= userEmail %>" >                
+            </div>
+        </div>        
+        <div class="control-group">
+            <div class="form-group floating-label-form-group controls">
+                <label for="message" >Message</label>
+                <textarea rows="5" class="form-control" placeholder="Message" name="message" id="message" required ></textarea>                
+            </div>
+        </div>
+        <br>        
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+        </div>
+    </form>
+</div>

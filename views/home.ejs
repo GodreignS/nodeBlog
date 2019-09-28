@@ -1,0 +1,45 @@
+<div class="col-lg-10 col-md-10 mx-auto">
+    <% if(articles.length == 0){ %>
+        <div class="blog__post post-preview">
+
+            <h2 class="post-title mt-5">
+                No article !
+            </h2>           
+            
+            <p class="post-meta">
+                <a href="/addPost">Write an article</a>
+            </p>
+        </div>
+               
+    <% } else { 
+            articles.forEach((article, index) => { 
+            
+        %>
+            <div class="post-preview row">
+                    <div class="blog__postImg col-3 rounded">
+                        <img src="/uploads/postImage/<%= article.urlImage %>"  title="post image">
+                    </div>
+                    <div class="blog__post col-8 ml-auto lg-auto">
+                        <a href="/post/<%= article._id %>">
+                            <h2 class="post-title">
+                                <%= article.title %>
+                            </h2>
+                            <h3 class="post-subtitle">
+                                <%= truncate(article.body, 100) %>
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by
+                            <a href="/"><%= article.author.fullname%></a>
+                            <%= moment(article.postDate).format('MMMM Do YYYY') %></p>
+                    </div>
+            </div>
+            <hr>       
+            
+    <%  });
+    
+    } %>
+    <!-- Pager -->
+    <div class="clearfix">
+        <a class="btn btn-primary float-right" href="#">Older Posts &rarr;</a>
+    </div>    
+</div>
