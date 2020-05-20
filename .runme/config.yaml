@@ -1,0 +1,17 @@
+version: 1.0
+publish: app
+services:
+  app:
+    command: node app.js
+    environment:
+      PORT: "3000"
+      db_name: nodeBlog
+      db_port: "27017"
+      db_username: servais2d
+      db_password: PSAUMES3725
+    build:
+      type: dockerfile
+      config: ./.runme/Dockerfile
+    ports:
+      - container: 3000
+        public: 80
